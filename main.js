@@ -1,0 +1,34 @@
+import express from "express";
+// import applerouter from "./routes/apple.js";
+import samsung from "./routes/sam.js";
+// import rum from "./routes/rum.js";
+import mongoose from "mongoose";
+// const apple = express();
+// apple.use("/moblies/apple", applerouter);
+
+const sam = express();
+sam.use(express.json());
+sam.use("/mobiles/samsung", samsung);
+
+
+// const rum = express();
+// rum.use(express.json());
+// rum.use("/HotDrinks/rum", rum)
+
+
+// console.log(mongoose)
+mongoose
+  .connect(
+    "mongodb+srv://surya190602:Prakash2000@cluster0.dya28kj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => {
+    console.log("db connected");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+sam.listen(1000, () => {
+  console.log("server connected");
+});
+
