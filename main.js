@@ -5,18 +5,17 @@ import samsung from "./routes/sam.js";
 import mongoose from "mongoose";
 // const apple = express();
 // apple.use("/moblies/apple", applerouter);
-import cors from "./cors"
+import cors from "cors";
 
 const sam = express();
-sam.use(express.json());
-sam.use(cors())
-sam.use("/mobiles/samsung", samsung);
+sam.use(cors());
 
+sam.use(express.json());
+sam.use("/mobiles/samsung", samsung);
 
 // const rum = express();
 // rum.use(express.json());
 // rum.use("/HotDrinks/rum", rum)
-
 
 // console.log(mongoose)
 mongoose
@@ -25,7 +24,7 @@ mongoose
   )
   .then(() => {
     console.log("db connected");
-    console.log("server")
+    console.log("server");
   })
   .catch((err) => {
     console.log(err);
@@ -34,4 +33,3 @@ mongoose
 sam.listen(1000, () => {
   console.log("server connected");
 });
-
