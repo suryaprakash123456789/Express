@@ -5,9 +5,11 @@ import samsung from "./routes/sam.js";
 import mongoose from "mongoose";
 // const apple = express();
 // apple.use("/moblies/apple", applerouter);
+import cors from "./cors"
 
 const sam = express();
 sam.use(express.json());
+sam.use(cors())
 sam.use("/mobiles/samsung", samsung);
 
 
