@@ -1,7 +1,7 @@
 // import mobiles from "../data/mobiles.js";
 // import { response } from "express";
 import Samsung from "../model/Mobiles.js";
-
+// import rum from "../model/Rum.js";
 // // export const getdata = (req, res) => res.json(mobiles);
 
 // export const postdata = (req, res) => {
@@ -112,3 +112,10 @@ export const deleteData = async (req, res) => {
 // model.save();
 // res.json(model);
 // };
+
+
+// export const getone =async(req,res)=>{
+//     try{
+//         const rummodel = await 
+//     }
+// }
