@@ -4,6 +4,11 @@ import axios from "axios";
 
 const Data = () => {
   let [data, setData] = useState([]);
+  let [mobileData, setMobileData] = useState({
+    brand: "",
+    price: "",
+
+  });
   useEffect(() => {
     fetchData()
   },[data])
@@ -19,6 +24,20 @@ function fetchData() {
     await axios.delete(`https://mobile-api-z3cm.onrender.com/mobiles/samsung/${id}`)
     fetchData()
   }
+
+  async function sendData(e){
+    e.preventDefault(e)
+    await axios.post("https://mobile-api-z3cm.onrender.com/mobiles/samsung/", mobileData)
+   setMobileData({brand:"",price:""})
+  }
+
+  function changing(e){
+    setMobileData({
+      ...mobileData,
+       [e.target.name]: e.target.value,
+   
+  })
+  }
   return (
     <div>
       Data
@@ -27,8 +46,18 @@ function fetchData() {
           {element.brand} - {element.price}-{element._id} <button onClick={()=>deleteData(element._id)}>Delete</button>
         </li>
       ))}
+
+<h1>Add Mobiles</h1>
+<form>
+  <input type="text" value={mobileData.brand} name="brand"placeholder="enter the  modelname" onChange={changing}/>
+  <input type="text" value={mobileData.price} name="price"placeholder="enter the price" onChange={changing}/>
+  <button onClick={sendData}>Add</button>
+</form>
     </div>
+
+
   );
+ 
 };
 
 export default Data;
