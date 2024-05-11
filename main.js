@@ -53,7 +53,7 @@ const rumhot = express();
 rumhot.use(cors());
 
 rumhot.use(express.json());
-rumhot.use("/mobiles/hotDrinks", rum);
+rumhot.use("/drinks/hotDrinks", rum);
 
 // const rum = express();
 // rum.use(express.json());
