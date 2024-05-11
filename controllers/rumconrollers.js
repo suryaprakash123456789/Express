@@ -2,7 +2,7 @@ import Rum from "../model/Rum.js";
 
 export const getdata = async (req, res) => {
   try {
-    const rum = await rum.find();
+    const rum = await Rum.find();
     res.status(200).json(rum);
   } catch (err) {
     res.status(500).send(err);

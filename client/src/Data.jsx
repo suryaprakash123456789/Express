@@ -110,14 +110,14 @@ const Data = () => {
 
   function fetchData() {
     axios
-      .get("https://rum-dijl.onrender.com/drinks/hotDrinks/")
+      .get("https://rum-dijl.onrender.com/drinks/hotDrinks/") 
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }
 
   async function deleteData(id) {
     await axios.delete(
-      `https://mobile-api-z3cm.onrender.com/mobiles/samsung/${id}`
+      `https://rum-dijl.onrender.com/drinks/hotDrinks/${id}`
     );
     fetchData();
   }
@@ -125,7 +125,7 @@ const Data = () => {
   async function sendData(e) {
     e.preventDefault(e);
     await axios.post(
-      "https://mobile-api-z3cm.onrender.com/mobiles/samsung/",
+      "https://rum-dijl.onrender.com/drinks/hotDrinks/",
       mobileData
     );
     setMobileData({ brand: "", price: "" });
@@ -148,7 +148,7 @@ const Data = () => {
   async function updateData(e) {
     e.preventDefault(e);
     await axios.put(
-      `https://mobile-api-z3cm.onrender.com/mobiles/samsung/${mobileData._id}`,
+      `https://rum-dijl.onrender.com/drinks/hotDrinks/${mobileData._id}`,
       mobileData
     );
     fetchData();
@@ -164,13 +164,13 @@ const Data = () => {
           <button onClick={() => updateButton(element)}>Update</button>
         </li>
       ))}
-      <h1>Add Mobiles</h1>
+      <h1>Add wine brands</h1>
       <form>
         <input
           type="text"
           value={mobileData.brand}
           name="brand"
-          placeholder="enter the  modelname"
+          placeholder="enter the brandname"
           onChange={changing}
         />
         <input
