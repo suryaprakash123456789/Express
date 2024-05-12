@@ -93,7 +93,6 @@
 
 // export default Data;
 
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 // import { deleteData } from "../../controllers/mobileControllers";
@@ -110,15 +109,13 @@ const Data = () => {
 
   function fetchData() {
     axios
-      .get("https://rum-dijl.onrender.com/drinks/hotDrinks/") 
+      .get("https://rum-dijl.onrender.com/drinks/hotDrinks/")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }
 
   async function deleteData(id) {
-    await axios.delete(
-      `https://rum-dijl.onrender.com/drinks/hotDrinks/${id}`
-    );
+    await axios.delete(`https://rum-dijl.onrender.com/drinks/hotDrinks/${id}`);
     fetchData();
   }
 
